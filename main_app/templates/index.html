@@ -7,7 +7,29 @@
     <title>Diabetes Detection</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
 </head>
-<body>
+<body class="ui container">
     <h1>{{title}}</h1>
+    <form action="/predict" method="POST" class="ui form ">
+        {% csrf_token %}
+        <h4 class="ui dividing header">Enter Information</h4>
+        <div class="field">
+            <label>Diabetes Pedigree Function: </label>
+            <input type="text" name="dpf" />
+        </div>
+        <div class="field">
+            <label>Glucose: </label>
+            <input type="text" name="glucose" />
+        </div>
+        <div class="field">
+            <label>BMI: </label>
+            <input type="text" name="bmi" />
+        </div>
+        <div class="field">
+            <label>Age: </label>
+            <input type="text" name="age" />
+        </div>
+        
+        <input type="submit" class="ui primary basic button" value="Submit"/>
+    </form> 
 </body>
 </html>
