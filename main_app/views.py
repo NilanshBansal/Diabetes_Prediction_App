@@ -1,18 +1,20 @@
 from django.shortcuts import render,redirect
-# Create your views here.
+from django.conf import settings 
+
+import os
 import pickle
 
 def index(request):
     return render(request,'index.html',{'title':'Diabetes Detection'})
 
-def test():
+def readFile():
     print ('hello')
-    with open('./bagging_clf.pkl', 'rb') as f:
+    with open(os.path.join(settings.PROJECT_ROOT, 'bagging_clf.pkl'), 'rb') as f:
         data = pickle.load(f)
-
+        print (data)
     
 
 def predict(request):
     print (request.POST)
-    test()
+    readFile()
     return redirect ('/')
